@@ -92,6 +92,6 @@ Elements without HTML preview support are shown as `[element name]`, for example
 
 ## Licence
 
-GNU GPL v3 or later. See [LICENSE.md](LICENSE.md). No product activation is required.
+GNU GPL v3 or later. See [LICENSE.md](LICENSE.md).
 
 Available free of charge under the terms of the applicable license.
