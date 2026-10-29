@@ -1,0 +1,50 @@
+.coursefieldtext-preview-scroll {
+    overflow: auto;
+    max-width: 100%;
+    padding: 1rem;
+    background: #eef1f3;
+    border: 1px solid #c9d0d6;
+}
+.coursefieldtext-preview-page {
+    position: relative;
+    isolation: isolate;
+    background: #fff;
+    color: #000;
+    font-family: Arial, sans-serif;
+    font-size: 12pt;
+    line-height: 1.25;
+    overflow: hidden;
+}
+.coursefieldtext-preview-element {
+    position: absolute;
+    line-height: 1.25;
+}
+.coursefieldtext-preview-page img {
+    max-width: none;
+}
+.coursefieldtext-preview-page [data-coursefieldtext-area] {
+    outline: 1px dotted #8a959d;
+}
+.coursefieldtext-preview-placeholder {
+    display: inline-block;
+    background: #fff1cd;
+    color: #463700;
+}
+
+#preview-cmid {
+    width: auto;
+    max-width: 100%;
+}
+
+.coursefieldtext-preview-scroll.is-fitted {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0;
+    overflow: hidden;
+}
+.coursefieldtext-preview-scroll.is-fitted .coursefieldtext-preview-page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+}
