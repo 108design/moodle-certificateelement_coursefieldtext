@@ -13,4 +13,4 @@ Both guides are available as Markdown and PDF in each repository. They use neutr
 
 ## Image and date additions
 
-Course images and Flexible Date are optional members of the Multitool family. See the [repository README](../README.md#optional-image-and-date-tools) for the component links and the course-image setup. These two guides cover the text pair.
+Course images and Flexible Date are optional members of the Multitool family. See the [repository README](../README.md#certificate-multitool-set) for the component links and the course-image setup. These two guides cover the text pair.

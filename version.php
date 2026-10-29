@@ -24,10 +24,10 @@
  */
 defined('MOODLE_INTERNAL') || die();
 $plugin->component = 'certificateelement_coursefieldtext';
-$plugin->version = 2026102900;
+$plugin->version = 2026102901;
 $plugin->requires = 2024100700;
 $plugin->supported = [405, 503];
 $plugin->incompatible = 504;
-$plugin->maturity = MATURITY_BETA;
-$plugin->release = '0.10.0-beta';
+$plugin->maturity = MATURITY_STABLE;
+$plugin->release = '1.0.0';
 $plugin->dependencies = ['tool_certificate' => 2025031804, 'customfield_multiline' => 2026102700];
