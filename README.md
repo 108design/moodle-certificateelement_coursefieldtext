@@ -1,6 +1,24 @@
 # Certificate Multitool – Cert. Element
 
-Place a multiline course description on a shared Moodle certificate template. Course editors maintain one plain-text field; certificate designers control all typography, colour, width, position alignment and line height. Explicit line breaks and blank lines are preserved.
+Certificate Multitool combines two Moodle plugins: course editors maintain certificate wording in course settings, and certificate designers control its layout in a shared Certificate manager template. Install the two plugins together for this workflow.
+
+| Part | Role |
+| --- | --- |
+| [Custom Field](https://github.com/108design/moodle-customfield_multiline) | Stores course text, text mode and alignment choices. |
+| [Cert. Element](https://github.com/108design/moodle-certificateelement_coursefieldtext) | Places those course values on the certificate template and supplies the course HTML preview. |
+
+This repository contains the **Cert. Element** part of the pair. It preserves explicit line breaks and blank lines.
+
+## Guides for both plugins
+
+Start with the guide for your role. The same neutral, screenshot-free guides are included in both repositories.
+
+| Guide | Read online | Download |
+| --- | --- | --- |
+| Course editors: enter text, choose formatting and check the course preview | [Course editor guide](docs/COURSE_EDITOR_GUIDE.md) | [PDF](docs/COURSE_EDITOR_GUIDE.pdf) |
+| Administrators and certificate designers: install the pair, create fields and configure templates | [Administrator guide](docs/ADMINISTRATOR_GUIDE.md) | [PDF](docs/ADMINISTRATOR_GUIDE.pdf) |
+
+[Documentation index](docs/README.md)
 
 ## Requirements and installation
 
@@ -43,11 +61,6 @@ Existing saved Plain text and Limited HTML values keep their interpretation on u
 
 Elements without HTML preview support are shown as `[element name]`, for example `[issued date]`, using their configured position, width, typography and alignment. Their actual renderers are not called and no certificate is issued.
 
-
-## Guides
-
-- [Course editor guide](docs/COURSE_EDITOR_GUIDE.md) ([PDF](docs/COURSE_EDITOR_GUIDE.pdf))
-- [Administrator guide](docs/ADMINISTRATOR_GUIDE.md) ([PDF](docs/ADMINISTRATOR_GUIDE.pdf))
 
 ## Licence
 
