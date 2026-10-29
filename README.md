@@ -1,6 +1,6 @@
 # Certificate Multitool – Cert. Element
 
-Certificate Multitool combines two Moodle plugins: course editors maintain certificate wording in course settings, and certificate designers control its layout in a shared Certificate manager template. Install the two plugins together for this workflow.
+The text workflow in Certificate Multitool combines two Moodle plugins: course editors maintain certificate wording in course settings, and certificate designers control its layout in a shared Certificate manager template. Install the two plugins together for this workflow.
 
 | Part | Role |
 | --- | --- |
@@ -19,6 +19,20 @@ Start with the guide for your role. The same neutral, screenshot-free guides are
 | Administrators and certificate designers: install the pair, create fields and configure templates | [Administrator guide](docs/ADMINISTRATOR_GUIDE.md) | [PDF](docs/ADMINISTRATOR_GUIDE.pdf) |
 
 [Documentation index](docs/README.md)
+
+## Optional image and date tools
+
+The Certificate Multitool family also includes course images and flexible dates. Add the parts your template needs:
+
+| Plugin | Use |
+| --- | --- |
+| [Course image](https://github.com/108design/moodle-customfield_courseimage) | Upload one PNG, JPEG or GIF in a course custom field, for example a signature. |
+| [Course field image](https://github.com/108design/moodle-certificateelement_coursefieldimg) | Place the selected course image on a certificate. It also accepts the first internally stored image in a native textarea course field. |
+| [Flexible Date](https://github.com/108design/moodle-certificateelement_flexdate) | Format dates in the certificate template. |
+
+For a course-specific image, use Course image together with Course field image. The image element saves an image copy with the issued certificate, so a later course-image change does not replace it when that certificate is regenerated. The standard Image element uses a template or shared image; it does not select an image from the current course automatically.
+
+These additions are optional. The course editor and administrator guides above cover the text pair; the linked image and date repositories document their own setup.
 
 ## Requirements and installation
 
