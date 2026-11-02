@@ -35,7 +35,7 @@ class element extends \tool_certificate\element {
         $data = json_decode($this->get_data() ?: '{}', true);
         $settings = (is_array($data) ? $data : []) +
             ['field' => '', 'previewcourseid' => 0, 'lineheight' => null, 'verticalanchor' => 'top', 'areaheight' => null,
-                'smalltextsize' => 60];
+                'smalltextsize' => 60, 'documenttitle' => false];
         $settings['smalltextsize'] = small_text::normalise($settings['smalltextsize']);
         $settings['verticalanchor'] = in_array($settings['verticalanchor'], ['top', 'middle', 'bottom'], true) ?
             $settings['verticalanchor'] : 'top';
@@ -64,6 +64,11 @@ class element extends \tool_certificate\element {
         $mform->addElement('course', 'previewcourseid', get_string('previewcourse', 'certificateelement_coursefieldtext'),
             ['requiredcapabilities' => ['moodle/course:update']]);
         $mform->addHelpButton('previewcourseid', 'previewcourse', 'certificateelement_coursefieldtext');
+        $title = $mform->createElement('advcheckbox', 'documenttitle', '',
+            get_string('documenttitle', 'certificateelement_coursefieldtext'));
+        $info = $mform->createElement('static', 'documenttitleinfo', '', help::icon('documenttitle'));
+        $mform->addGroup([$title, $info], 'documenttitlegroup', '', ' ', false);
+        $mform->setType('documenttitle', PARAM_BOOL);
         $mform->addElement('static', 'issuebehaviour', get_string('issuance', 'certificateelement_coursefieldtext'),
             get_string('issuancesummary', 'certificateelement_coursefieldtext') . help::icon('issuance'));
         $mform->addElement('text', 'lineheight', get_string('lineheight', 'certificateelement_coursefieldtext'),
@@ -139,7 +144,8 @@ class element extends \tool_certificate\element {
             'previewcourseid' => (int)($data->previewcourseid ?? $settings['previewcourseid']),
             'lineheight' => line_height::normalise($data->lineheight ?? $settings['lineheight']), 'verticalanchor' => $anchor,
             'areaheight' => area_height::normalise($data->areaheight ?? $settings['areaheight']),
-            'smalltextsize' => small_text::normalise($data->smalltextsize ?? $settings['smalltextsize'])]);
+            'smalltextsize' => small_text::normalise($data->smalltextsize ?? $settings['smalltextsize']),
+            'documenttitle' => (bool)($data->documenttitle ?? $settings['documenttitle'])]);
         parent::save_form_data($data);
     }
 
@@ -156,6 +162,13 @@ class element extends \tool_certificate\element {
         $settings = $this->settings();
         $text = $preview ? source::preview_html((string)$settings['field'], (int)$settings['previewcourseid']) :
             ($issue ? source::issued_html((string)$settings['field'], $issue) : '');
+        // Use only the decoded issue snapshot, never current course or designer preview values.
+        if (!empty($settings['documenttitle']) && !$preview && $issue) {
+            $title = document_title::from_html($text);
+            if ($title !== '') {
+                $pdf->SetTitle($title);
+            }
+        }
         $text = small_text::render($text, $settings['smalltextsize'], (float)$this->get_fontsize());
         $alignment = $preview ? source::preview_alignment((string)$settings['field'], (int)$settings['previewcourseid']) :
             ($issue ? source::issued_alignment((string)$settings['field'], $issue) : '');

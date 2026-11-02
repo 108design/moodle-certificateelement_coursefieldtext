@@ -28,11 +28,12 @@ defined('MOODLE_INTERNAL') || die();
 
 /** Contextual settings help, following the standalone Frontpage panel contract. */
 final class help {
-    private const TOPICS = ['overview', 'issuance', 'preview'];
+    private const TOPICS = ['overview', 'issuance', 'documenttitle', 'preview'];
 
     private static function topics(): array {
         global $PAGE;
-        return $PAGE->url->get_path() === (new \moodle_url(course_preview::PATH))->get_path() ? ['preview'] : ['overview', 'issuance'];
+        return $PAGE->url->get_path() === (new \moodle_url(course_preview::PATH))->get_path() ? ['preview'] :
+            ['overview', 'issuance', 'documenttitle'];
     }
     private static bool $prepared = false;
 

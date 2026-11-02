@@ -61,6 +61,10 @@ This GPL release targets Moodle 4.5 through 5.3. It requires a host-appropriate 
 
 Native field visibility controls normal Moodle display. A certificate designer allowed to edit the preview course can deliberately use a hidden field. Certificates may include a hidden field's saved value, so select fields intended for recipients.
 
+## PDF document title
+
+Enable **Use this content as the PDF document title** on one element per template to use its selected course field for the title in PDF document properties. The title uses the text saved at issuance, with HTML formatting removed, entities decoded and line breaks replaced by spaces. The option is off by default. An empty saved value keeps the existing title. Visible content, the template name and filename remain unchanged. Saving the option does not regenerate existing PDFs; previews without an issue snapshot keep the standard title.
+
 ## Issued text
 
 The element reads the selected field's exported text saved with the issue. Later course edits affect new issues. PDF regeneration reuses saved text; layout and field selection still follow the current template. Missing historical data displays empty. Changing a course field shortname requires selecting it again for future issues. Other issuing integrations must provide the same exported course-field data.

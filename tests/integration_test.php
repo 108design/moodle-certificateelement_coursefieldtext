@@ -175,7 +175,7 @@ final class integration_test extends \advanced_testcase {
         $generator = $this->getDataGenerator()->get_plugin_generator('tool_certificate');
         $form = $generator->create_template_and_edit_element_form('coursefieldtext');
         $html = $form->render();
-        foreach (['field', 'previewcourseid', 'lineheight', 'smalltextsize', 'areaheight', 'verticalanchor', 'font', 'fontsize', 'colour', 'width', 'refpoint', 'posx', 'posy'] as $name) {
+        foreach (['field', 'previewcourseid', 'documenttitle', 'lineheight', 'smalltextsize', 'areaheight', 'verticalanchor', 'font', 'fontsize', 'colour', 'width', 'refpoint', 'posx', 'posy'] as $name) {
             $this->assertStringContainsString('name="' . $name . '"', $html);
         }
         $this->assertStringContainsString('coursefieldtexthelp', $html);
@@ -198,6 +198,68 @@ final class integration_test extends \advanced_testcase {
         $this->assertSame('textarea', $updated->get('type'));
         $this->assertEmpty($updated->get_configdata_property('visible'));
         $this->assertSame('Historical & text', \core_customfield\data_controller::create($stored->get('id'))->get_value());
+    }
+
+    public function test_document_title_defaults_partial_save_and_existing_pdf_preservation(): void {
+        // This test exercises PDF storage; notification delivery is outside its scope.
+        set_config('tool_certificate_certificateissued_disable', 1, 'message');
+        [$field, $course, $value, $template, $element] = $this->fixture('Course title');
+        $this->assertFalse($element->prepare_data_for_form()->documenttitle);
+        $issue = $this->issue($template, $course);
+        $file = $template->get_issue_file($issue);
+        $content = $file->get_content();
+        $filename = $file->get_filename();
+        $element->save_form_data((object)['documenttitle' => 1]);
+        $element->save_form_data((object)['posx' => 99]);
+        $reloaded = \tool_certificate\element::instance($element->get_id());
+        $this->assertTrue($reloaded->prepare_data_for_form()->documenttitle);
+        $this->assertSame($content, $template->get_issue_file($issue)->get_content());
+        $this->assertSame($filename, $template->get_issue_file($issue)->get_filename());
+        $this->assertSame('Multiline', $template->get_name());
+        $element->save_form_data((object)['documenttitle' => 0]);
+        $element->save_form_data((object)['posy' => 70]);
+        $this->assertFalse($element->prepare_data_for_form()->documenttitle);
+    }
+
+    public function test_document_title_uses_each_issue_snapshot_and_preserves_visible_rendering(): void {
+        set_config('tool_certificate_certificateissued_disable', 1, 'message');
+        [$field, $course, $value, $template, $element] = $this->fixture("Course A\nCafé & <b>literal</b>");
+        $issuea = $this->issue($template, $course);
+        $courseb = $this->getDataGenerator()->create_course();
+        $valueb = \core_customfield\data_controller::create(0, (object)['instanceid' => $courseb->id], $field);
+        $valueb->set('contextid', $valueb->get_context()->id);
+        $valueb->instance_form_save((object)[$valueb->get_form_element_name() =>
+            '<p><strong>Course B</strong> &amp; R&amp;D</p><p>Second<br>Line</p>',
+            $valueb->get_form_element_name() . '_format' => FORMAT_HTML]);
+        $issueb = $this->issue($template, $courseb);
+        $value->instance_form_save((object)[$value->get_form_element_name() => 'Later A']);
+        $valueb->instance_form_save((object)[$valueb->get_form_element_name() => 'Later B']);
+        $spy = static fn() => new class {
+            public array $calls = [];
+            public function __call($method, $args) { $this->calls[$method] = $args; }
+        };
+        foreach ([[$issuea, 'Course A Café & <b>literal</b>'], [$issueb, 'Course B & R&D Second Line']] as [$issue, $title]) {
+            $element->save_form_data((object)['documenttitle' => false]);
+            $off = $spy();
+            $element->render($off, false, null, $issue);
+            $this->assertArrayNotHasKey('SetTitle', $off->calls);
+            $element->save_form_data((object)['documenttitle' => true]);
+            $on = $spy();
+            $element->render($on, false, null, $issue);
+            $this->assertSame([$title], $on->calls['SetTitle']);
+            unset($on->calls['SetTitle']);
+            $this->assertSame($off->calls, $on->calls);
+        }
+        foreach ([null, (object)['data' => '{}'], (object)['data' => json_encode([
+                'coursecustomfield_' . $field->get('shortname') =>
+                    \customfield_multiline\text::to_export('<p>&nbsp;</p><br>', true)])]] as $empty) {
+            $pdf = $spy();
+            $element->render($pdf, false, null, $empty);
+            $this->assertArrayNotHasKey('SetTitle', $pdf->calls);
+        }
+        $preview = $spy();
+        $element->render($preview, true, null, $issuea);
+        $this->assertArrayNotHasKey('SetTitle', $preview->calls);
     }
 
     public function test_small_size_save_preview_issuance_and_legacy_regeneration(): void {
