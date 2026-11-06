@@ -1,0 +1,17 @@
+name: Certificate Multitool – Cert. Element
+summary: 108design's free GPL certificate element renders course-managed multiline wording and alignment
+  in a shared Certificate manager template.
+category: Certificates
+description: |
+  Let course editors maintain certificate wording in course settings while certificate designers control its layout in a shared template. This is the certificate-output part of the Certificate Multitool text pair; install the complementary Custom Field plugin (customfield_multiline) to store the course values.
+
+  The element supports plain multiline text and the field's limited HTML mode, with font, size, colour, width, line height and positioning controls. Course values can override horizontal and vertical alignment. An optional area height reserves space for the text; text that does not fit is rejected rather than clipped.
+
+  Use a permitted preview course in the template designer, or the course HTML preview for the course-based workflow. Previewing does not issue a certificate. New issues retain course content and explicit presentation choices; inherited formatting and layout can follow later template changes when PDFs are regenerated. Existing stored PDFs remain unchanged.
+
+  Requires compatible Certificate manager (tool_certificate) and customfield_multiline. The course issuance and course HTML preview workflow also uses Course certificate (mod_coursecertificate). Check each parent's declared compatibility, especially on Moodle 5.3. Maintained by 108design and available free of charge under the GNU GPL v3 or later.
+labels:
+- fully-free
+links:
+  docs: https://github.com/108design/moodle-certificateelement_coursefieldtext/blob/main/README.md
+  issues: https://github.com/108design/moodle-certificateelement_coursefieldtext/issues
