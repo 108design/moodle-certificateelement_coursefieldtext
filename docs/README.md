@@ -1,6 +1,6 @@
 # Certificate Multitool guides
 
-These guides cover the complete Certificate Multitool pair. Install [Custom Field](https://github.com/108design/moodle-customfield_multiline) to maintain course values and [Cert. Element](https://github.com/108design/moodle-certificateelement_coursefieldtext) to place them on certificate templates.
+These guides cover the complete Certificate Multitool pair. Install [Certificate Multitool – Course Field: Multiline Text](https://github.com/108design/moodle-customfield_multiline) to maintain course values and [Certificate Multitool – Cert. Element: Multiline Text](https://github.com/108design/moodle-certificateelement_coursefieldtext) to place them on certificate templates.
 
 | Audience | Guide | PDF |
 | --- | --- | --- |

@@ -69,3 +69,5 @@
 "/tests/preview_html_test.php" -export-ignore -export-subst
 "/tests/small_text_test.php" -export-ignore -export-subst
 "/version.php" -export-ignore -export-subst
+"/docs/branding" export-ignore -export-subst
+"/docs/branding/marketplace-logo.png" export-ignore -export-subst
