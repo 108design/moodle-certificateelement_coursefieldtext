@@ -1,4 +1,4 @@
-# Generated for the exact normal installation profile; CAMP metadata stays in Git.
+# Generated for the exact normal installation profile.
 * -export-ignore -export-subst
 "/.camp" export-ignore -export-subst
 "/.camp/listing.yml" export-ignore -export-subst
@@ -41,6 +41,8 @@
 "/docs/COURSE_EDITOR_GUIDE.md" -export-ignore -export-subst
 "/docs/COURSE_EDITOR_GUIDE.pdf" -export-ignore -export-subst
 "/docs/README.md" -export-ignore -export-subst
+"/docs/branding" export-ignore -export-subst
+"/docs/branding/marketplace-logo.png" export-ignore -export-subst
 "/docs/screenshots" export-ignore -export-subst
 "/docs/screenshots/course-preview.jpg" export-ignore -export-subst
 "/docs/screenshots/text-template.jpg" export-ignore -export-subst
@@ -69,5 +71,3 @@
 "/tests/preview_html_test.php" -export-ignore -export-subst
 "/tests/small_text_test.php" -export-ignore -export-subst
 "/version.php" -export-ignore -export-subst
-"/docs/branding" export-ignore -export-subst
-"/docs/branding/marketplace-logo.png" export-ignore -export-subst
