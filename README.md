@@ -1,4 +1,8 @@
-# Certificate Multitool – Cert. Element
+<p align="center">
+  <img src="https://raw.githubusercontent.com/108design/moodle-certificateelement_coursefieldtext/main/docs/branding/marketplace-logo.png" alt="Certificate Multitool – Cert. Element: Multiline Text logo" width="125" height="125">
+</p>
+
+# Certificate Multitool – Cert. Element: Multiline Text
 
 The text workflow in Certificate Multitool combines two Moodle plugins: course editors maintain certificate wording in course settings, and certificate designers control its layout in a shared Certificate manager template. Install the two plugins together for this workflow.
 <details>
@@ -11,8 +15,8 @@ The text workflow in Certificate Multitool combines two Moodle plugins: course e
 
 | Part | Role |
 | --- | --- |
-| [Custom Field](https://github.com/108design/moodle-customfield_multiline) | Stores course text, text mode and alignment choices. |
-| [Cert. Element](https://github.com/108design/moodle-certificateelement_coursefieldtext) | Places those course values on the certificate template and supplies the course HTML preview. |
+| [Certificate Multitool – Course Field: Multiline Text](https://github.com/108design/moodle-customfield_multiline) | Stores course text, text mode and alignment choices. |
+| [Certificate Multitool – Cert. Element: Multiline Text](https://github.com/108design/moodle-certificateelement_coursefieldtext) | Places those course values on the certificate template and supplies the course HTML preview. |
 
 This repository contains the **Cert. Element** part of the pair. It preserves explicit line breaks and blank lines.
 
@@ -23,11 +27,11 @@ Use the text pair for course-managed wording and the image pair for course-speci
 
 | Plugin | Role and companion |
 | --- | --- |
-| [Certificate Multitool – Custom Field](https://github.com/108design/moodle-customfield_multiline) | Stores course text, text mode and alignment. Pair it with Cert. Element for certificate output. |
-| [Certificate Multitool – Cert. Element](https://github.com/108design/moodle-certificateelement_coursefieldtext) | Renders that course text and supplies the course HTML preview. Requires Custom Field and Certificate manager. |
-| [Course image](https://github.com/108design/moodle-customfield_courseimage) | Provides a single-image course field. Pair it with Course field image for certificate output. |
-| [Course field image](https://github.com/108design/moodle-certificateelement_coursefieldimg) | Places a course image on the certificate and preserves the issued image copy. Requires Certificate manager; it accepts Course image or a native textarea field with an internal image. |
-| [Flexible Date](https://github.com/108design/moodle-certificateelement_flexdate) | Formats certificate issue and expiry dates. Requires Certificate manager. |
+| [Certificate Multitool – Course Field: Multiline Text](https://github.com/108design/moodle-customfield_multiline) | Stores course text, text mode and alignment. Pair it with Cert. Element for certificate output. |
+| [Certificate Multitool – Cert. Element: Multiline Text](https://github.com/108design/moodle-certificateelement_coursefieldtext) | Renders that course text and supplies the course HTML preview. Requires Custom Field and Certificate manager. |
+| [Certificate Multitool – Course Field: Image](https://github.com/108design/moodle-customfield_courseimage) | Provides a single-image course field. Pair it with Course field image for certificate output. |
+| [Certificate Multitool – Cert. Element: Course Field Image](https://github.com/108design/moodle-certificateelement_coursefieldimg) | Places a course image on the certificate and preserves the issued image copy. Requires Certificate manager; it accepts Course image or a native textarea field with an internal image. |
+| [Certificate Multitool - Cert. Element: Flexible Date](https://github.com/108design/moodle-certificateelement_flexdate) | Formats certificate issue and expiry dates. Requires Certificate manager. |
 
 **Text pair:** install Custom Field and Cert. Element together for the course-text certificate workflow. **Image pair:** install Course image and Course field image together for the single-image upload workflow. The image element can also use a native textarea image without Course image. Course certificate is needed for course-based issuance and the text pair’s course HTML preview.
 
