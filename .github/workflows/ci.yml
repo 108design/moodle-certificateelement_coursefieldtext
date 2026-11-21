@@ -50,6 +50,8 @@ jobs:
           echo "NVM_DIR=$HOME/.nvm" >> "$GITHUB_ENV"
       - name: Add Certificate manager dependency
         run: moodle-plugin-ci add-plugin --branch v5.0.11 moodleworkplace/moodle-tool_certificate
+      - name: Add Course certificate dependency for native issuance and preview tests
+        run: moodle-plugin-ci add-plugin --branch v5.0.11 moodleworkplace/moodle-mod_coursecertificate
       - name: Add multiline custom field dependency
         run: moodle-plugin-ci add-plugin --branch main 108design/moodle-customfield_multiline
       - name: Add optional course-image adapter exercised by the preview tests
