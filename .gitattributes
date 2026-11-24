@@ -6,6 +6,7 @@
 "/.github" export-ignore -export-subst
 "/.github/workflows" export-ignore -export-subst
 "/.github/workflows/camp-release.yml" export-ignore -export-subst
+"/.github/workflows/ci.yml" export-ignore -export-subst
 "/LICENSE.md" -export-ignore -export-subst
 "/README.md" -export-ignore -export-subst
 "/amd" -export-ignore -export-subst

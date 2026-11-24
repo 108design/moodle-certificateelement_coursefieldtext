@@ -70,7 +70,7 @@ class element extends \tool_certificate\element {
         $mform->addGroup([$title, $info], 'documenttitlegroup', '', ' ', false);
         $mform->setType('documenttitle', PARAM_BOOL);
         $mform->addElement('static', 'issuebehaviour', get_string('issuance', 'certificateelement_coursefieldtext'),
-            get_string('issuancesummary', 'certificateelement_coursefieldtext') . help::icon('issuance'));
+            get_string('issuancesummary', 'certificateelement_coursefieldtext') . ' ' . help::icon('issuance'));
         $mform->addElement('text', 'lineheight', get_string('lineheight', 'certificateelement_coursefieldtext'),
             ['size' => 6, 'placeholder' => get_string('default')]);
         $mform->setType('lineheight', PARAM_RAW_TRIMMED);
