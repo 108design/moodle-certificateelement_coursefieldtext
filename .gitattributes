@@ -9,6 +9,7 @@
 "/.github/workflows/ci.yml" export-ignore -export-subst
 "/LICENSE.md" -export-ignore -export-subst
 "/README.md" -export-ignore -export-subst
+"/TRADEMARKS.md" -export-ignore -export-subst
 "/amd" -export-ignore -export-subst
 "/amd/build" -export-ignore -export-subst
 "/amd/build/admin_help.min.js" -export-ignore -export-subst

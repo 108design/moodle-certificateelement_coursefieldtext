@@ -103,3 +103,5 @@ Elements without HTML preview support are shown as `[element name]`, for example
 GNU GPL v3 or later. See [LICENSE.md](LICENSE.md).
 
 Available free of charge under the terms of the applicable license.
+
+The 108design name and logo are subject to the [name and logo notice](TRADEMARKS.md).
