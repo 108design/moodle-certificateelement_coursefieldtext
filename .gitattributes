@@ -51,6 +51,8 @@
 "/lang" -export-ignore -export-subst
 "/lang/de" -export-ignore -export-subst
 "/lang/de/certificateelement_coursefieldtext.php" -export-ignore -export-subst
+"/lang/de_du" -export-ignore -export-subst
+"/lang/de_du/certificateelement_coursefieldtext.php" -export-ignore -export-subst
 "/lang/en" -export-ignore -export-subst
 "/lang/en/certificateelement_coursefieldtext.php" -export-ignore -export-subst
 "/lib.php" -export-ignore -export-subst
